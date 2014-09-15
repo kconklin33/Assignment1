@@ -1,0 +1,39 @@
+<html>
+<body>
+
+<h1>Pick a number 1 to 10</h1>
+
+<?php
+	
+	//creates random number
+	if (!isset($_GET['hidden'])) {
+		$randNumber = rand(0,10);
+		}
+	else {
+		$randNumber = $_GET['hidden'];
+		}
+
+	//users guest
+	if (isset($_GET['number'])) {
+		$guess = $_GET['number'];
+		
+		if ($guess == $randNumber) {
+			echo "<p>That's It!</p>";
+			}
+		
+		}
+	
+	?>
+
+
+
+
+
+<form method="get">
+		<p><input type="text" placeholder="Guess a number" name="number" /></p>
+		<input type="hidden" name="hidden" value="<?php print $randNumber; ?>" />
+		<p><input type="submit" name="submit" value="submit" /></p>
+	</form>
+
+</body>
+</html>
